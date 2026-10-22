@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Formatura Thalia e Raisa</title>
+<meta name="description" content="Colação de grau em Medicina da Thalia e da Raisa · 25 de novembro, às 16h, no Teatro Neiva Pavan, em Umuarama. Confirme sua presença.">
+<meta name="theme-color" content="#17233F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317233F'/%3E%3Cpath d='M32 10v46' stroke='%23D4B26A' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M37 17c7 2 5 8-5 10s-10 8 0 10 9 8 0 9' fill='none' stroke='%23D4B26A' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://formatura-thalia-raisa.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Formatura Thalia e Raisa">
+<meta property="og:title" content="Convite de formatura · Thalia &amp; Raisa">
+<meta property="og:description" content="Colação de grau em Medicina da Thalia e da Raisa · 25 de novembro, às 16h, no Teatro Neiva Pavan, em Umuarama. Confirme sua presença.">
+<meta property="og:url" content="https://formatura-thalia-raisa.vercel.app/">
+<meta property="og:image" content="https://formatura-thalia-raisa.vercel.app/og.jpg">
+<meta property="og:image:secure_url" content="https://formatura-thalia-raisa.vercel.app/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Thalia e Raisa de beca, com os nomes em dourado sobre fundo azul marinho">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convite de formatura · Thalia &amp; Raisa">
+<meta name="twitter:description" content="Colação de grau em Medicina da Thalia e da Raisa · 25 de novembro, às 16h, no Teatro Neiva Pavan, em Umuarama. Confirme sua presença.">
+<meta name="twitter:image" content="https://formatura-thalia-raisa.vercel.app/og.jpg">
+<link rel="preload" href="fonts/pinyon-script-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cinzel-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Pinyon Script';font-weight:400;font-style:normal;font-display:swap;src:url(fonts/pinyon-script-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cinzel';font-weight:400;font-style:normal;font-display:swap;src:url(fonts/cinzel-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cinzel';font-weight:500;font-style:normal;font-display:swap;src:url(fonts/cinzel-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-weight:400;font-style:normal;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-weight:400;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-weight:500;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-weight:600;font-style:normal;font-display:swap;src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2')}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Convite em papel: cartão creme marmorizado sobre azul marinho, dourado como único acento. Visual único, sem tema escuro. */
+:root{
+  --navy-deep:#111A30;
+  --navy:#17233F;
+  --cream:#F5F3EE;
+  --ink:#1C2A47;
+  --ink-soft:#5A6378;
+  --gold:#C9A85F;
+  --gold-text:#9A7535;
+  --gold-label:#7A5A22;
+  --gold-light:#D4B26A;
+  --pearl:#E9E4D8;
+  --mist:#A9B2C7;
+  --rule:#D9CFB8;
+  --photo-bg:#FFFFFF;
+  --f-script:'Pinyon Script','Snell Roundhand','Apple Chancery',cursive;
+  --f-caps:'Cinzel','Times New Roman',serif;
+  --f-body:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --gutter-l:max(24px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(24px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+  background:var(--navy-deep);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--navy-deep);color:var(--ink);font-family:var(--f-body);-webkit-font-smoothing:antialiased}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.card{position:relative;width:100%;max-width:480px;margin:0 auto;background:var(--cream);display:flex;flex-direction:column;overflow:hidden}
+.marble{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+
+/* textos utilitários */
+.caps{font-family:var(--f-caps);text-transform:uppercase}
+.eyebrow{margin:0;font-family:var(--f-caps);font-size:11px;letter-spacing:.3em;color:var(--gold-label)}
+.script{font-family:var(--f-script);font-weight:400}
+.foil{color:var(--gold-light);background:linear-gradient(100deg,#B8914A 0%,#F1DDA2 38%,#C9A45C 56%,#E8CF8E 76%,#A9853F 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ornament{display:flex;align-items:center;gap:12px;width:100%;max-width:220px}
+.ornament span{flex:1;height:1px;background:var(--gold)}
+.ornament i{width:7px;height:7px;transform:rotate(45deg);border:1px solid var(--gold)}
+
+/* capa */
+.cover{position:relative;overflow:hidden;background:var(--navy);padding-block:14px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.cover-frame{position:relative;min-height:692px;border:1px solid var(--gold);padding:52px 22px 44px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:36px;text-align:center}
+.corner{position:absolute;width:18px;height:18px}
+.corner.tl{top:6px;left:6px}
+.corner.tr{top:6px;right:6px;transform:scaleX(-1)}
+.corner.bl{bottom:6px;left:6px;transform:scaleY(-1)}
+.corner.br{bottom:6px;right:6px;transform:scale(-1,-1)}
+.cover-top{display:flex;flex-direction:column;align-items:center;gap:18px}
+.cover-top p{margin:0;font-family:var(--f-caps);font-size:11px;letter-spacing:.34em;color:var(--gold-light)}
+.names{display:flex;flex-direction:column;align-items:center;margin:0;font-weight:400}
+.names .dra{font-family:var(--f-caps);font-size:12px;letter-spacing:.3em;color:var(--mist)}
+.names .name{font-family:var(--f-script);font-size:86px;line-height:1.15;padding:0 14px 6px}
+.names .amp{font-family:var(--f-body);font-style:italic;font-size:30px;line-height:1;color:var(--pearl);margin:2px 0 10px}
+.names .family{font-family:var(--f-caps);font-size:14px;letter-spacing:.55em;padding-left:.55em;color:var(--pearl);margin-top:18px}
+.cover-foot{display:flex;flex-direction:column;align-items:center;gap:12px}
+.cover-foot .line{display:block;width:56px;height:1px;background:var(--gold)}
+.cover-foot .course{font-family:var(--f-caps);font-size:21px;letter-spacing:.44em;padding-left:.44em;color:var(--pearl)}
+.cover-foot .school{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;color:var(--mist)}
+
+/* faixas de conteúdo */
+.band{position:relative;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:flex;flex-direction:column;align-items:center;text-align:center}
+
+.countdown-band{padding-block:56px 52px;gap:22px}
+.countdown{width:100%;max-width:360px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.countdown div{display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 0}
+.countdown div + div{border-left:1px solid var(--gold)}
+.countdown b{font-family:var(--f-body);font-weight:600;font-size:44px;line-height:1;color:var(--navy);font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1}
+.countdown span{font-family:var(--f-caps);font-size:10px;letter-spacing:.2em;color:var(--ink-soft)}
+.when{margin:0;font-style:italic;font-size:19px;color:var(--ink-soft);text-wrap:balance}
+
+.story{padding-block:8px 64px;gap:24px}
+.photo{margin:0;width:100%;border:1px solid var(--gold);padding:6px}
+.photo img{display:block;width:100%;height:auto;background:var(--photo-bg)}
+.story h2{margin:0;font-family:var(--f-script);font-weight:400;font-size:54px;line-height:1.2;color:var(--gold-text);text-wrap:balance}
+.story .text{max-width:36ch;display:flex;flex-direction:column;gap:16px;font-size:19px;line-height:1.55;color:var(--ink)}
+.story .text p{margin:0}
+.story .sign{margin:0;font-family:var(--f-script);font-size:40px;line-height:1.2;color:var(--gold-text)}
+
+.grads{padding-block:0 64px;gap:28px}
+.grad-list{width:100%;max-width:320px;display:flex;flex-direction:column;gap:44px}
+.grad{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}
+.grad .photo{aspect-ratio:2/3}
+.grad .photo img{height:100%;object-fit:cover;object-position:center top}
+.grad figcaption{display:flex;flex-direction:column;align-items:center;gap:2px}
+.grad .title{font-family:var(--f-script);font-size:34px;line-height:1.2;color:var(--gold-text)}
+.grad .full{font-family:var(--f-caps);font-size:11px;letter-spacing:.18em;color:var(--ink-soft)}
+.parents{display:flex;flex-direction:column;align-items:center;gap:6px}
+.parents .label{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;color:var(--gold-label)}
+.parents .p{font-style:italic;font-size:20px;line-height:1.35;color:var(--ink)}
+.parents .mem{font-size:17px;color:var(--ink-soft)}
+
+.ceremony{padding-block:0 64px;gap:12px}
+.ceremony .head{display:flex;flex-direction:column;align-items:center;margin-top:12px}
+.ceremony .head span{font-family:var(--f-caps);font-size:13px;letter-spacing:.44em;padding-left:.44em;color:var(--gold-label)}
+.ceremony h2{margin:0;font-family:var(--f-script);font-weight:400;font-size:58px;line-height:1.15;color:var(--gold-text);text-wrap:balance}
+.ticket{margin-top:20px;width:100%;border:1px solid var(--gold);padding:6px}
+.ticket-inner{border:1px solid var(--rule);padding:36px 18px 32px;display:flex;flex-direction:column;align-items:center;gap:24px}
+.date{width:100%;max-width:300px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center}
+.date span{padding:10px 0;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);font-family:var(--f-caps);font-size:12px;letter-spacing:.16em;color:var(--ink)}
+.date b{font-family:var(--f-body);font-weight:600;font-size:68px;line-height:1;color:var(--navy);font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1}
+.month{margin-top:-10px;font-family:var(--f-caps);font-size:13px;letter-spacing:.3em;padding-left:.3em;color:var(--gold-label)}
+.place{display:flex;flex-direction:column;align-items:center;gap:6px}
+.place p{margin:0;font-size:18px;line-height:1.45;color:var(--ink-soft);text-wrap:balance}
+.place .venue{font-size:24px;font-weight:600;line-height:1.25;color:var(--navy)}
+.btn-line{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border:1px solid var(--gold);font-family:var(--f-caps);font-size:11px;letter-spacing:.16em;color:var(--gold-label);text-decoration:none;transition:background-color .2s ease}
+.btn-line:hover{background:rgba(201,168,95,.12)}
+
+.rsvp{position:relative;overflow:hidden;background:var(--navy);padding-block:64px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);text-align:center}
+.rsvp-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:18px}
+.rsvp .eyebrow{color:var(--gold-light)}
+.rsvp h2{margin:0;font-family:var(--f-script);font-weight:400;font-size:52px;line-height:1.15;color:var(--gold-light);text-wrap:balance}
+.rsvp p{margin:0;max-width:30ch;font-size:19px;line-height:1.5;color:var(--pearl)}
+.btn-gold{margin-top:6px;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 28px;background:var(--gold-light);color:var(--navy);font-family:var(--f-caps);font-weight:500;font-size:12px;letter-spacing:.2em;text-decoration:none;transition:background-color .2s ease}
+.btn-gold:hover{background:#E0C27F}
+.rsvp .alt{font-size:17px;color:var(--mist)}
+.rsvp .alt span{color:var(--pearl);font-variant-numeric:tabular-nums;user-select:all}
+
+footer{position:relative;background:var(--navy-deep);padding-block:48px 56px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+footer .sig{font-family:var(--f-script);font-size:40px;line-height:1.2;color:var(--gold-light)}
+footer .small{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;color:var(--mist)}
+
+@media (max-width:360px){
+  .names .name{font-size:72px}
+  .countdown b{font-size:38px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="card">
+
+<svg class="marble" aria-hidden="true">
+<filter id="mv-cream" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.0032 0.009" numOctaves="4" seed="23"></feTurbulence>
+<feColorMatrix type="matrix" values="0 0 0 0 0.52  0 0 0 0 0.57  0 0 0 0 0.68  2.2 0 0 0 -0.6"></feColorMatrix>
+<feComponentTransfer><feFuncA type="table" tableValues="0 0 0 0 0 0 0.2 0 0 0 0 0 0.09 0 0 0 0"></feFuncA></feComponentTransfer>
+</filter>
+<rect width="100%" height="100%" fill="#000000" filter="url(#mv-cream)"></rect>
+</svg>
+
+<header class="cover">
+<svg class="marble" aria-hidden="true">
+<filter id="mv-cover" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.0036 0.011" numOctaves="4" seed="11"></feTurbulence>
+<feColorMatrix type="matrix" values="0 0 0 0 0.78  0 0 0 0 0.83  0 0 0 0 0.93  2.2 0 0 0 -0.6"></feColorMatrix>
+<feComponentTransfer><feFuncA type="table" tableValues="0 0 0 0 0 0 0.2 0 0 0 0 0 0.09 0 0 0 0"></feFuncA></feComponentTransfer>
+</filter>
+<rect width="100%" height="100%" fill="#000000" filter="url(#mv-cover)"></rect>
+</svg>
+<div class="cover-frame">
+<svg class="corner tl" aria-hidden="true" viewBox="0 0 18 18" fill="none" stroke="#C9A85F"><path d="M1 17V1h16" stroke-width="1"></path><path d="M5 13V5h8" stroke-width="0.8"></path><circle cx="5" cy="5" r="1.3" fill="#C9A85F" stroke="none"></circle></svg>
+<svg class="corner tr" aria-hidden="true" viewBox="0 0 18 18" fill="none" stroke="#C9A85F"><path d="M1 17V1h16" stroke-width="1"></path><path d="M5 13V5h8" stroke-width="0.8"></path><circle cx="5" cy="5" r="1.3" fill="#C9A85F" stroke="none"></circle></svg>
+<svg class="corner bl" aria-hidden="true" viewBox="0 0 18 18" fill="none" stroke="#C9A85F"><path d="M1 17V1h16" stroke-width="1"></path><path d="M5 13V5h8" stroke-width="0.8"></path><circle cx="5" cy="5" r="1.3" fill="#C9A85F" stroke="none"></circle></svg>
+<svg class="corner br" aria-hidden="true" viewBox="0 0 18 18" fill="none" stroke="#C9A85F"><path d="M1 17V1h16" stroke-width="1"></path><path d="M5 13V5h8" stroke-width="0.8"></path><circle cx="5" cy="5" r="1.3" fill="#C9A85F" stroke="none"></circle></svg>
+
+<div class="cover-top">
+<svg aria-hidden="true" width="96" height="96" viewBox="0 0 120 120" fill="none" stroke="#D4B26A" stroke-linecap="round" stroke-linejoin="round">
+<defs>
+<g id="laurel">
+<path d="M56 110C34 104 20 86 20 58" stroke-width="1.4"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(46.7 106.4) rotate(160)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(46.7 106.4) rotate(230)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(36.1 99.3) rotate(182)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(36.1 99.3) rotate(252)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(28 89.5) rotate(205)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(28 89.5) rotate(275)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(22.5 77.1) rotate(227)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(22.5 77.1) rotate(297)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(20.3 64.6) rotate(235)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(20.3 64.6) rotate(305)"></path>
+<path d="M0 0C4-3 10-3 13 0C10 3 4 3 0 0Z" fill="#D4B26A" stroke="none" transform="translate(20 59) rotate(270)"></path>
+</g>
+</defs>
+<use href="#laurel"></use>
+<use href="#laurel" transform="matrix(-1 0 0 1 120 0)"></use>
+<path d="M60 22V106" stroke-width="3"></path>
+<circle cx="60" cy="18" r="3.2" fill="#D4B26A" stroke="none"></circle>
+<path d="M67 31C77 34 75 43 60 47C45 51 45 61 60 64C75 67 75 77 60 80C50 82 50 90 57 93" stroke-width="2.6"></path>
+<ellipse cx="66.5" cy="29.5" rx="4.4" ry="3" fill="#D4B26A" stroke="none" transform="rotate(18 66.5 29.5)"></ellipse>
+</svg>
+<p>CONVITE DE FORMATURA</p>
+</div>
+
+<h1 class="names">
+<span class="dra">DRA.</span>
+<span class="name foil">Thalia</span>
+<span class="amp">&amp;</span>
+<span class="dra">DRA.</span>
+<span class="name foil">Raisa</span>
+<span class="family">LENHANI</span>
+</h1>
+
+<div class="cover-foot">
+<span class="line"></span>
+<span class="course">MEDICINA</span>
+<span class="school">UNIVERSIDADE PARANAENSE · 2026</span>
+</div>
+</div>
+</header>
+
+<section class="band countdown-band" aria-label="Contagem regressiva">
+<p class="eyebrow" id="cd-label">FALTAM PARA A COLAÇÃO DE GRAU</p>
+<div class="countdown" id="cd">
+<div><b id="cd-d">34</b><span>DIAS</span></div>
+<div><b id="cd-h">05</b><span>HORAS</span></div>
+<div><b id="cd-m">00</b><span>MIN</span></div>
+<div><b id="cd-s">00</b><span>SEG</span></div>
+</div>
+<p class="when">Quarta-feira, 25 de novembro de 2026, às 16h</p>
+</section>
+
+<section class="band story">
+<figure class="photo">
+<img src="img/thalia-e-raisa.jpg" width="1073" height="1600" alt="Thalia e Raisa lado a lado, de beca e capelo, mostrando seus estetoscópios">
+</figure>
+<h2>Juntas, desde sempre</h2>
+<div class="text">
+<p>Nascemos com um minuto de diferença e, desde então, dividimos quase tudo: a casa, as brincadeiras, os sonhos e, nos últimos seis anos, os livros, os plantões e as madrugadas de estudo.</p>
+<p>A Medicina nos ensinou que cuidar de alguém começa pela escuta, pela paciência e pelo respeito à história de cada pessoa. Foi um caminho de muita dedicação, e nunca o percorremos sozinhas.</p>
+<p>Agora chegou a hora de receber o grau lado a lado, como sempre fizemos tudo. Cada pessoa que esteve conosco faz parte desta conquista.</p>
+<p>Por isso, com muito carinho, convidamos você e sua família para celebrar este momento com a gente.</p>
+</div>
+<p class="sign">Thalia e Raisa</p>
+</section>
+
+<section class="band grads">
+<p class="eyebrow">AS FORMANDAS</p>
+<div class="grad-list">
+<figure class="grad">
+<div class="photo"><img src="img/thalia.jpg" width="1071" height="1607" alt="Dra. Thalia Lenhani de beca e capelo, segurando o canudo de Medicina"></div>
+<figcaption><span class="title">Dra. Thalia</span><span class="full">THALIA LENHANI</span></figcaption>
+</figure>
+<figure class="grad">
+<div class="photo"><img src="img/raisa.jpg" width="1432" height="2150" alt="Dra. Raisa Lenhani de beca e capelo, segurando o canudo de Medicina"></div>
+<figcaption><span class="title">Dra. Raisa</span><span class="full">RAISA LENHANI</span></figcaption>
+</figure>
+</div>
+<div class="parents">
+<span class="label">FILHAS DE</span>
+<span class="p">Selma Marlene Wilsinski Lenhani</span>
+<span class="p">Luiz Carlos Lenhani <span class="mem">(in memoriam)</span></span>
+</div>
+</section>
+
+<section class="band ceremony">
+<div class="ornament" aria-hidden="true"><span></span><i></i><span></span></div>
+<div class="head">
+<span>SOLENIDADE DE</span>
+<h2>Colação de Grau</h2>
+</div>
+<div class="ticket">
+<div class="ticket-inner">
+<div class="date">
+<span>QUARTA</span>
+<b>25</b>
+<span>ÀS 16H</span>
+</div>
+<span class="month">NOVEMBRO · 2026</span>
+<div class="place">
+<p class="venue">Teatro Neiva Pavan</p>
+<p>Praça Mascarenhas de Moraes, 79, Zona III</p>
+<p>Umuarama, Paraná</p>
+</div>
+<a class="btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Teatro+Neiva+Pavan+Umuarama+PR" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>VER NO MAPA</a>
+</div>
+</div>
+</section>
+
+<section class="rsvp">
+<svg class="marble" aria-hidden="true">
+<filter id="mv-rsvp" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.004 0.012" numOctaves="4" seed="5"></feTurbulence>
+<feColorMatrix type="matrix" values="0 0 0 0 0.78  0 0 0 0 0.83  0 0 0 0 0.93  2.2 0 0 0 -0.6"></feColorMatrix>
+<feComponentTransfer><feFuncA type="table" tableValues="0 0 0 0 0 0 0.2 0 0 0 0 0 0.09 0 0 0 0"></feFuncA></feComponentTransfer>
+</filter>
+<rect width="100%" height="100%" fill="#000000" filter="url(#mv-rsvp)"></rect>
+</svg>
+<div class="rsvp-inner">
+<span class="eyebrow">PRESENÇA</span>
+<h2>Confirme sua presença</h2>
+<p>Sua resposta nos ajuda a organizar cada detalhe. Confirme até 15 de novembro.</p>
+<a class="btn-gold" href="https://wa.me/554599905982?text=Ol%C3%A1%21%20Confirmo%20minha%20presen%C3%A7a%20na%20cola%C3%A7%C3%A3o%20de%20grau%20da%20Thalia%20e%20da%20Raisa%2C%20no%20dia%2025%2F11%20%C3%A0s%2016h.%0ANome%3A%0AN%C3%BAmero%20de%20pessoas%3A" target="_blank" rel="noopener"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5z"></path><path d="M8.8 8.6c.2 2.9 2.7 5.6 5.6 6l1.2-1.3-1.8-.9-.8.8c-1-.4-2-1.4-2.4-2.4l.8-.8-.9-1.8z"></path></svg>CONFIRMAR PELO WHATSAPP</a>
+<p class="alt">ou pelo número <span>(45) 9990-5982</span></p>
+</div>
+</section>
+
+<footer>
+<svg aria-hidden="true" width="56" height="56" viewBox="0 0 120 120" fill="none" stroke="#D4B26A" stroke-linecap="round" stroke-linejoin="round">
+<path d="M56 110C34 104 20 86 20 58" stroke-width="1.6"></path>
+<path d="M64 110C86 104 100 86 100 58" stroke-width="1.6"></path>
+<path d="M60 22V106" stroke-width="3.4"></path>
+<circle cx="60" cy="18" r="3.4" fill="#D4B26A" stroke="none"></circle>
+<path d="M67 31C77 34 75 43 60 47C45 51 45 61 60 64C75 67 75 77 60 80C50 82 50 90 57 93" stroke-width="3"></path>
+<ellipse cx="66.5" cy="29.5" rx="4.6" ry="3.2" fill="#D4B26A" stroke="none" transform="rotate(18 66.5 29.5)"></ellipse>
+</svg>
+<span class="sig">Thalia &amp; Raisa</span>
+<span class="small">MEDICINA · UNIPAR · TURMA 2021 · 2026</span>
+</footer>
+
+</main>
+
+<script>
+(function () {
+  var alvo = new Date('2026-11-25T16:00:00-03:00').getTime();
+  var d = document.getElementById('cd-d');
+  var h = document.getElementById('cd-h');
+  var m = document.getElementById('cd-m');
+  var s = document.getElementById('cd-s');
+  var label = document.getElementById('cd-label');
+  var box = document.getElementById('cd');
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var diff = alvo - Date.now();
+    if (diff <= 0) {
+      box.hidden = true;
+      label.textContent = 'OBRIGADA POR CELEBRAR CONOSCO';
+      clearInterval(timer);
+      return;
+    }
+    d.textContent = String(Math.floor(diff / 86400000));
+    h.textContent = pad(Math.floor(diff / 3600000) % 24);
+    m.textContent = pad(Math.floor(diff / 60000) % 60);
+    s.textContent = pad(Math.floor(diff / 1000) % 60);
+  }
+  var timer = setInterval(tick, 1000);
+  tick();
+})();
+</script>
+</body>
+</html>
