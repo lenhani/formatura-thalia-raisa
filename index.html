@@ -163,6 +163,17 @@ footer .small{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;co
   .countdown b{font-size:38px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Botão flutuante de música */
+.music-toggle{position:fixed;bottom:max(20px,env(safe-area-inset-bottom,20px));right:max(20px,env(safe-area-inset-right,20px));z-index:999;width:46px;height:46px;border-radius:50%;background:rgba(23,35,63,.88);border:1px solid var(--gold);color:var(--gold-light);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.38),0 0 0 1px rgba(201,168,95,.2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease;padding:0;-webkit-tap-highlight-color:transparent}
+.music-toggle:hover{transform:scale(1.08);border-color:#F1DDA2;box-shadow:0 6px 20px rgba(0,0,0,.45),0 0 10px rgba(212,178,106,.35)}
+.music-toggle:active{transform:scale(.94)}
+.music-toggle .icon-paused{display:block}
+.music-toggle .icon-playing{display:none}
+.music-toggle.is-playing .icon-paused{display:none}
+.music-toggle.is-playing .icon-playing{display:block}
+.music-toggle.is-playing{border-color:var(--gold-light);animation:music-glow 3s ease-in-out infinite alternate}
+@keyframes music-glow{0%{box-shadow:0 4px 18px rgba(0,0,0,.38),0 0 0 rgba(212,178,106,0)}100%{box-shadow:0 4px 18px rgba(0,0,0,.38),0 0 14px rgba(212,178,106,.35)}}
 </style>
 </head>
 <body>
@@ -338,6 +349,17 @@ footer .small{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;co
 
 </main>
 
+<audio id="bg-music" loop preload="auto">
+  <source src="audio/musica.mp3" type="audio/mpeg">
+  <source src="audio/musica.m4a" type="audio/mp4">
+  <source src="audio/musica.ogg" type="audio/ogg">
+</audio>
+
+<button type="button" id="music-toggle" class="music-toggle" aria-label="Tocar música de fundo" title="Música do convite">
+  <svg class="icon-playing" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+  <svg class="icon-paused" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+</button>
+
 <script>
 (function () {
   var alvo = new Date('2026-11-25T16:00:00-03:00').getTime();
@@ -363,6 +385,73 @@ footer .small{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;co
   }
   var timer = setInterval(tick, 1000);
   tick();
+})();
+
+(function () {
+  var audio = document.getElementById('bg-music');
+  var btn = document.getElementById('music-toggle');
+  if (!audio || !btn) return;
+
+  audio.volume = 0.65;
+  var userInteracted = false;
+
+  function updateState(isPlaying) {
+    if (isPlaying) {
+      btn.classList.add('is-playing');
+      btn.setAttribute('aria-label', 'Pausar música');
+      btn.setAttribute('title', 'Pausar música');
+    } else {
+      btn.classList.remove('is-playing');
+      btn.setAttribute('aria-label', 'Tocar música');
+      btn.setAttribute('title', 'Tocar música');
+    }
+  }
+
+  function tryPlay() {
+    var p = audio.play();
+    if (p !== undefined) {
+      p.then(function () {
+        updateState(true);
+      }).catch(function () {
+        updateState(false);
+      });
+    }
+  }
+
+  // Tentar tocar no carregamento inicial
+  tryPlay();
+
+  // Iniciar na primeira interação (toque na tela ao rolar ou clique)
+  function onFirstTouch() {
+    if (!userInteracted) {
+      userInteracted = true;
+      if (audio.paused) {
+        tryPlay();
+      }
+    }
+    window.removeEventListener('click', onFirstTouch);
+    window.removeEventListener('touchstart', onFirstTouch);
+  }
+  window.addEventListener('click', onFirstTouch, { passive: true });
+  window.addEventListener('touchstart', onFirstTouch, { passive: true });
+
+  // Botão flutuante para pausar/retomar a qualquer momento
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    userInteracted = true;
+    if (audio.paused) {
+      tryPlay();
+    } else {
+      audio.pause();
+      updateState(false);
+    }
+  });
+
+  // Garantia de repetição contínua (loop)
+  audio.addEventListener('ended', function () {
+    audio.currentTime = 0;
+    audio.play().catch(function () {});
+  });
 })();
 </script>
 </body>
