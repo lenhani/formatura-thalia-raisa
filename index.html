@@ -165,14 +165,14 @@ footer .small{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;co
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* Botão flutuante de música */
-.music-toggle{position:fixed;bottom:max(20px,env(safe-area-inset-bottom,20px));right:max(20px,env(safe-area-inset-right,20px));z-index:999;width:46px;height:46px;border-radius:50%;background:rgba(23,35,63,.88);border:1px solid var(--gold);color:var(--gold-light);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.38),0 0 0 1px rgba(201,168,95,.2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease;padding:0;-webkit-tap-highlight-color:transparent}
+.music-toggle{position:fixed;bottom:max(20px,env(safe-area-inset-bottom,20px));right:max(20px,env(safe-area-inset-right,20px));z-index:999;width:46px;height:46px;border-radius:50%;background:rgba(23,35,63,.88);border:1px solid var(--gold-light);color:var(--gold-light);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.38),0 0 0 1px rgba(201,168,95,.2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease;padding:0;-webkit-tap-highlight-color:transparent;animation:music-glow 3s ease-in-out infinite alternate}
 .music-toggle:hover{transform:scale(1.08);border-color:#F1DDA2;box-shadow:0 6px 20px rgba(0,0,0,.45),0 0 10px rgba(212,178,106,.35)}
 .music-toggle:active{transform:scale(.94)}
-.music-toggle .icon-paused{display:block}
-.music-toggle .icon-playing{display:none}
-.music-toggle.is-playing .icon-paused{display:none}
-.music-toggle.is-playing .icon-playing{display:block}
-.music-toggle.is-playing{border-color:var(--gold-light);animation:music-glow 3s ease-in-out infinite alternate}
+.music-toggle .icon-paused{display:none}
+.music-toggle .icon-playing{display:block}
+.music-toggle.is-muted .icon-paused{display:block}
+.music-toggle.is-muted .icon-playing{display:none}
+.music-toggle.is-muted{border-color:var(--gold);animation:none}
 @keyframes music-glow{0%{box-shadow:0 4px 18px rgba(0,0,0,.38),0 0 0 rgba(212,178,106,0)}100%{box-shadow:0 4px 18px rgba(0,0,0,.38),0 0 14px rgba(212,178,106,.35)}}
 </style>
 </head>
@@ -349,13 +349,13 @@ footer .small{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;co
 
 </main>
 
-<audio id="bg-music" loop preload="auto">
+<audio id="bg-music" autoplay loop preload="auto">
   <source src="audio/musica.mp3" type="audio/mpeg">
   <source src="audio/musica.m4a" type="audio/mp4">
   <source src="audio/musica.ogg" type="audio/ogg">
 </audio>
 
-<button type="button" id="music-toggle" class="music-toggle" aria-label="Tocar música de fundo" title="Música do convite">
+<button type="button" id="music-toggle" class="music-toggle" aria-label="Silenciar música" title="Música ativa (toque para silenciar)">
   <svg class="icon-playing" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
   <svg class="icon-paused" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
 </button>
@@ -392,65 +392,73 @@ footer .small{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;co
   var btn = document.getElementById('music-toggle');
   if (!audio || !btn) return;
 
-  audio.volume = 0.65;
-  var userInteracted = false;
+  audio.volume = 0.75;
+  var isManuallyMuted = false;
 
-  function updateState(isPlaying) {
-    if (isPlaying) {
-      btn.classList.add('is-playing');
-      btn.setAttribute('aria-label', 'Pausar música');
-      btn.setAttribute('title', 'Pausar música');
+  function setMutedUI(muted) {
+    if (muted) {
+      btn.classList.add('is-muted');
+      btn.setAttribute('aria-label', 'Ativar música');
+      btn.setAttribute('title', 'Música silenciada (toque para ouvir)');
     } else {
-      btn.classList.remove('is-playing');
-      btn.setAttribute('aria-label', 'Tocar música');
-      btn.setAttribute('title', 'Tocar música');
+      btn.classList.remove('is-muted');
+      btn.setAttribute('aria-label', 'Silenciar música');
+      btn.setAttribute('title', 'Música ativa (toque para silenciar)');
     }
   }
 
   function tryPlay() {
+    if (isManuallyMuted) return;
     var p = audio.play();
     if (p !== undefined) {
       p.then(function () {
-        updateState(true);
+        setMutedUI(false);
       }).catch(function () {
-        updateState(false);
+        // Se bloqueado antes do primeiro toque, mantém visual desmutado (ativo)
+        if (!isManuallyMuted) {
+          setMutedUI(false);
+        }
       });
     }
   }
 
-  // Tentar tocar no carregamento inicial
+  // Tentar tocar no carregamento
   tryPlay();
 
-  // Iniciar na primeira interação (toque na tela ao rolar ou clique)
-  function onFirstTouch() {
-    if (!userInteracted) {
-      userInteracted = true;
-      if (audio.paused) {
-        tryPlay();
-      }
-    }
-    window.removeEventListener('click', onFirstTouch);
-    window.removeEventListener('touchstart', onFirstTouch);
-  }
-  window.addEventListener('click', onFirstTouch, { passive: true });
-  window.addEventListener('touchstart', onFirstTouch, { passive: true });
-
-  // Botão flutuante para pausar/retomar a qualquer momento
-  btn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    userInteracted = true;
+  // Acionar imediatamente no primeiro toque, rolagem ou clique na tela
+  var events = ['click', 'touchstart', 'touchend', 'pointerdown', 'mousedown', 'scroll', 'wheel', 'keydown'];
+  function onUserInteract() {
+    if (isManuallyMuted) return;
     if (audio.paused) {
       tryPlay();
-    } else {
+    }
+  }
+
+  events.forEach(function (ev) {
+    window.addEventListener(ev, onUserInteract, { passive: true });
+    document.addEventListener(ev, onUserInteract, { passive: true });
+  });
+
+  // Botão flutuante: Se a pessoa quiser mutar, aperta no botão
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (!audio.paused) {
       audio.pause();
-      updateState(false);
+      isManuallyMuted = true;
+      setMutedUI(true);
+    } else {
+      isManuallyMuted = false;
+      setMutedUI(false);
+      tryPlay();
     }
   });
 
   // Garantia de repetição contínua (loop)
   audio.addEventListener('ended', function () {
-    audio.currentTime = 0;
-    audio.play().catch(function () {});
+    if (!isManuallyMuted) {
+      audio.currentTime = 0;
+      audio.play().catch(function () {});
+    }
   });
 })();
 </script>
