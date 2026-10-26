@@ -149,8 +149,11 @@ a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .rsvp .eyebrow{color:var(--gold-light)}
 .rsvp h2{margin:0;font-family:var(--f-script);font-weight:400;font-size:52px;line-height:1.15;color:var(--gold-light);text-wrap:balance}
 .rsvp p{margin:0;max-width:30ch;font-size:19px;line-height:1.5;color:var(--pearl)}
-.btn-gold{margin-top:6px;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 28px;background:var(--gold-light);color:var(--navy);font-family:var(--f-caps);font-weight:500;font-size:12px;letter-spacing:.2em;text-decoration:none;transition:background-color .2s ease}
-.btn-gold:hover{background:#E0C27F}
+.btn-gold{margin-top:8px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;background:var(--gold-light);color:var(--navy);font-family:var(--f-caps);font-weight:600;font-size:11.5px;letter-spacing:.16em;text-decoration:none;border-radius:4px;box-shadow:0 4px 18px rgba(0,0,0,.28),0 0 12px rgba(212,178,106,.35);transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease;cursor:pointer}
+.btn-gold:hover{background:#E0C27F;transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.35),0 0 18px rgba(212,178,106,.5)}
+.btn-gold:active{transform:translateY(0)}
+.btn-gold .arrow{transition:transform .2s ease}
+.btn-gold:hover .arrow{transform:translateX(3px)}
 .rsvp .alt{font-size:17px;color:var(--mist)}
 .rsvp .alt span{color:var(--pearl);font-variant-numeric:tabular-nums;user-select:all}
 
@@ -329,7 +332,7 @@ footer .small{font-family:var(--f-caps);font-size:10.5px;letter-spacing:.26em;co
 <span class="eyebrow">PRESENÇA</span>
 <h2>Confirme sua presença</h2>
 <p>Sua resposta nos ajuda a organizar cada detalhe. Confirme até 15 de novembro.</p>
-<a class="btn-gold" href="https://wa.me/5545999905982?text=Ol%C3%A1%21%20Confirmo%20minha%20presen%C3%A7a%20na%20cola%C3%A7%C3%A3o%20de%20grau%20da%20Thalia%20e%20da%20Raisa%2C%20no%20dia%2025%2F11%20%C3%A0s%2016h.%0ANome%3A%0AN%C3%BAmero%20de%20pessoas%3A" target="_blank" rel="noopener"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5z"></path><path d="M8.8 8.6c.2 2.9 2.7 5.6 5.6 6l1.2-1.3-1.8-.9-.8.8c-1-.4-2-1.4-2.4-2.4l.8-.8-.9-1.8z"></path></svg>CONFIRMAR PELO WHATSAPP</a>
+<a class="btn-gold" href="https://wa.me/5545999905982?text=Ol%C3%A1%21%20Confirmo%20minha%20presen%C3%A7a%20na%20cola%C3%A7%C3%A3o%20de%20grau%20da%20Thalia%20e%20da%20Raisa%2C%20no%20dia%2025%2F11%20%C3%A0s%2016h.%0ANome%3A%0AN%C3%BAmero%20de%20pessoas%3A" target="_blank" rel="noopener"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5z"></path><path d="M8.8 8.6c.2 2.9 2.7 5.6 5.6 6l1.2-1.3-1.8-.9-.8.8c-1-.4-2-1.4-2.4-2.4l.8-.8-.9-1.8z"></path></svg>CLIQUE AQUI PARA CONFIRMAR<svg class="arrow" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
 <p class="alt">ou pelo número <span>(45) 99990-5982</span></p>
 </div>
 </section>
